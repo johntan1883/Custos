@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BlindBoyMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class BlindBoyMovement : MonoBehaviour
     public float fixedZPosition = 5f;
 
     private PlayerMovement playerMovement;
+    public bool isHoldingDog = true;
 
     private void Start()
     {
@@ -38,5 +40,43 @@ public class BlindBoyMovement : MonoBehaviour
 
         // Apply the new position
         transform.position = currentPosition;
+
+        CheckHoldingDog();
+    }
+    
+    public void HoldDog()
+    {
+        isHoldingDog = !isHoldingDog;
+    }
+
+    private void HoldDogLogic()
+    {
+        // Make the blind boy a child of the dog
+        transform.SetParent(dog.transform);
+
+        // Set the local position relative to the dog's position
+        transform.localPosition = new Vector3(-1.19f, 0.8f, 0f);
+
+        // Disable boy's movement (assuming Rigidbody2D is used)
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    private void ReleaseDog()
+    {
+        transform.parent = null;
+    }
+
+    private void CheckHoldingDog() 
+    {
+        if (isHoldingDog)
+        {
+            HoldDogLogic();
+            Debug.Log("Holding dog!");
+        }
+        else if(!isHoldingDog)
+        {
+            ReleaseDog();
+            Debug.Log("Is not holding dog!");
+        }
     }
 }

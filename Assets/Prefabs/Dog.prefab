@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6539112334615860073}
   m_Layer: 0
   m_Name: Dog
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -98,7 +98,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.05772537, y: -0.037994772}
+  m_Offset: {x: -0.05772537, y: -0.0059402287}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -108,7 +108,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.6211575, y: 1.1006651}
+  m_Size: {x: 1.6211575, y: 1.036556}
   m_EdgeRadius: 0
 --- !u!114 &6539112334615860073
 MonoBehaviour:
@@ -130,7 +130,11 @@ MonoBehaviour:
     m_Bits: 64
   CheckRadius: 1
   IsFollowing: 0
+  IsFollowingDog: 0
+  interactUI: {fileID: 0}
   barkSoundClip: {fileID: 8300000, guid: 8d10ced49b092b643a664fa78f7bc13f, type: 3}
+  followObjectPrefab: {fileID: 2787068571683518834, guid: 46817fd40199a83429fc4784a1267f78, type: 3}
+  blindBoyMovement: {fileID: 0}
 --- !u!1 &1646248728803438449
 GameObject:
   m_ObjectHideFlags: 0

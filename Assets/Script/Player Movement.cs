@@ -23,12 +23,19 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false;
     private bool isGrounded;
     private bool interactZone = false;
+    private BlindBoyMovement blindBoy;
 
 
 
     private void Awake()
     {
         player_rb = GetComponent<Rigidbody2D>();
+        blindBoy = FindAnyObjectByType<BlindBoyMovement>();
+
+        if (blindBoy != null )
+        {
+            Debug.LogError("BlindBoyMovement script not found on any GameObject in the scene.");
+        }
     }
     
     // Update is called once per frame
@@ -70,11 +77,14 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessInputs()
     {
         moveDirection = Input.GetAxis("Horizontal");
-
+        
         if (Input.GetButtonDown("Jump") && isGrounded && !IsFollowingDog)
         {
-            Debug.Log("Jump");
-            isJumping = true;
+            if (!blindBoy.isHoldingDog)
+            {
+                Debug.Log("Jump");
+                isJumping = true;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -82,10 +92,10 @@ public class PlayerMovement : MonoBehaviour
             Bark();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            HoldBoy();
-        }
+        //if (Input.GetKeyDown(KeyCode.E) && interactZone)
+        //{
+        //    HoldBoy();
+        //}
     }
     private void FlipCharacter()
     {
@@ -134,18 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HoldBoy()
     {
-        Debug.Log("Hold the boy");
-
-        IsFollowingDog = !IsFollowingDog;
-
-        if (IsFollowingDog)
-        {
-            Debug.Log("Start following!");
-        }
-        else
-        {
-            Debug.Log("Stop following!");
-        }
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
