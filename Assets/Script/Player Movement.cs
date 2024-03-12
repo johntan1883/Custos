@@ -10,18 +10,21 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask GroundObject;
     public float CheckRadius;
     public bool IsFollowing;
+    public bool IsFollowingDog;
+    public GameObject interactUI;
 
     [SerializeField] private AudioClip barkSoundClip;
     [SerializeField] private GameObject followObjectPrefab;
+    [SerializeField] private BlindBoyMovement blindBoyMovement;
+    private GameObject followObject;
     private Rigidbody2D player_rb;
     private float moveDirection;
     private bool facingRight = true;
     private bool isJumping = false;
     private bool isGrounded;
+    private bool interactZone = false;
 
-    private GameObject followObject;
 
-    [SerializeField] private BlindBoyMovement blindBoyMovement;
 
     private void Awake()
     {
@@ -68,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         moveDirection = Input.GetAxis("Horizontal");
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded && !IsFollowingDog)
         {
             Debug.Log("Jump");
             isJumping = true;
@@ -117,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             followObject = Instantiate(followObjectPrefab, transform.position, Quaternion.identity);
 
             // Set the followObject for the BlindBoyMovement
-            blindBoyMovement.SetFollowObject(followObject);
+            //blindBoyMovement.SetFollowObject(followObject);
         }
     }
 
@@ -132,5 +135,35 @@ public class PlayerMovement : MonoBehaviour
     private void HoldBoy()
     {
         Debug.Log("Hold the boy");
+
+        IsFollowingDog = !IsFollowingDog;
+
+        if (IsFollowingDog)
+        {
+            Debug.Log("Start following!");
+        }
+        else
+        {
+            Debug.Log("Stop following!");
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("BlindBoy"))
+        {
+            interactUI.SetActive(true);
+            interactZone = true;
+            Debug.Log("Interact");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("BlindBoy"))
+        {
+            interactUI.SetActive(false);
+            interactZone = false;
+            Debug.Log("Left Interact");
+        }
     }
 }
