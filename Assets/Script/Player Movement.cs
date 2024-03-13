@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool interactZone = false;
     private BlindBoyMovement blindBoy;
 
-
+    private bool _KillMe = false;
 
     private void Awake()
     {
@@ -164,5 +164,10 @@ public class PlayerMovement : MonoBehaviour
             interactZone = false;
             Debug.Log("Left Interact");
         }
+    }
+
+    public void KILLME()
+    {
+        _KillMe = true;
     }
 }
