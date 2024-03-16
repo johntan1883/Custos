@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: af8b40a9c5455f44781da910e6dade53
+guid: bce929d61ee80b642bd2928220a61d8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4988462400131082715
-    second: KeySprite_0
+      213: -6957586377500742190
+    second: NewBlindSprite_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: KeySprite_0
+      name: NewBlindSprite_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 38
-        width: 59
-        height: 20
+        y: 29
+        width: 52
+        height: 95
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5265bc880eb65cab0800000000000000
-      internalID: -4988462400131082715
+      spriteID: 2dda8f27d00b17f90800000000000000
+      internalID: -6957586377500742190
       vertices: []
       indices: 
       edges: []
@@ -121,7 +121,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -129,7 +129,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      KeySprite_0: -4988462400131082715
+      NewBlindSprite_0: -6957586377500742190
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
