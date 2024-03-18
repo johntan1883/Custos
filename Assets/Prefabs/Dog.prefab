@@ -80,7 +80,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -122,16 +122,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba339952155d4d448e554bd9b0ebf03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  JumpForce: 450
+  interactUI: {fileID: 0}
   GroundCheck: {fileID: 4891930938090352421}
   GroundObject:
     serializedVersion: 2
     m_Bits: 64
+  MoveSpeed: 5
+  SprintSpeedMultiplier: 1.5
+  JumpForce: 450
   CheckRadius: 1
   IsFollowing: 0
   IsFollowingDog: 0
-  interactUI: {fileID: 0}
   barkSoundClip: {fileID: 8300000, guid: 8d10ced49b092b643a664fa78f7bc13f, type: 3}
   followObjectPrefab: {fileID: 2787068571683518834, guid: 46817fd40199a83429fc4784a1267f78, type: 3}
   blindBoyMovement: {fileID: 0}
@@ -276,8 +277,8 @@ Transform:
   m_GameObject: {fileID: 3276621357358928481}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.67, y: 0, z: 0}
-  m_LocalScale: {x: 3.9257, y: 3.9257, z: 3.9257}
+  m_LocalPosition: {x: -0.02, y: 0.24, z: 0}
+  m_LocalScale: {x: 3.5383093, y: 3.3448367, z: 5.2149}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 430547517845406357}
@@ -323,12 +324,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e073ae46d06800746a9b6c0b3aed4f15, type: 3}
+  m_Sprite: {fileID: -6043895293721478938, guid: 7f97b9412a7556d4d801a6a8aafdf7e4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.96875, y: 0.96875}
+  m_Size: {x: 0.69, y: 0.58}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

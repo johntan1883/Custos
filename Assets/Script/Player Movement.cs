@@ -112,6 +112,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Bark()
     {
+        //Play bark sound effect
         SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
         IsFollowing = !IsFollowing;
 
