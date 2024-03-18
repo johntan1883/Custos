@@ -4,26 +4,30 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float MoveSpeed;
-    public float JumpForce;
+    //PUBLIC VARIABLE
+    public GameObject interactUI;
     public Transform GroundCheck;
     public LayerMask GroundObject;
+    public float MoveSpeed;
+    public float SprintSpeedMultiplier = 2f;
+    public float JumpForce;
     public float CheckRadius;
     public bool IsFollowing;
     public bool IsFollowingDog;
-    public GameObject interactUI;
 
+    //PRIVATE VARIABLE
     [SerializeField] private AudioClip barkSoundClip;
     [SerializeField] private GameObject followObjectPrefab;
     [SerializeField] private BlindBoyMovement blindBoyMovement;
     private GameObject followObject;
     private Rigidbody2D player_rb;
+    private BlindBoyMovement blindBoy;
     private float moveDirection;
     private bool facingRight = true;
     private bool isJumping = false;
     private bool isGrounded;
-    private bool interactZone = false;
-    private BlindBoyMovement blindBoy;
+    private bool isSprinting = false;
+
 
     private void Awake()
     {
@@ -35,15 +39,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.LogError("BlindBoyMovement script not found on any GameObject in the scene.");
         }
     }
-    
-    // Update is called once per frame
     void Update()
     {
         ProcessInputs();
 
         Animate();
     }
-
     private void FixedUpdate()
     {
         //Check if grounded
@@ -51,9 +52,11 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
+    //ALL FUNCTION TO USE IN DOG
     private void Move()
     {
-        player_rb.velocity = new Vector2(moveDirection * MoveSpeed, player_rb.velocity.y);
+        float currentSpeed = isSprinting ? MoveSpeed * SprintSpeedMultiplier : MoveSpeed;
+        player_rb.velocity = new Vector2(moveDirection * currentSpeed, player_rb.velocity.y);
 
         if (isJumping)
         {
@@ -75,7 +78,18 @@ public class PlayerMovement : MonoBehaviour
     private void ProcessInputs()
     {
         moveDirection = Input.GetAxis("Horizontal");
-        
+
+        //Sprint Input
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isSprinting = true;
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            isSprinting = false;
+        }
+
+        //Jump Input
         if (Input.GetButtonDown("Jump") && isGrounded && !IsFollowingDog)
         {
             if (!blindBoy.isHoldingDog)
@@ -85,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //Bark Input
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Bark();
@@ -95,7 +110,6 @@ public class PlayerMovement : MonoBehaviour
         facingRight = !facingRight;
         transform.Rotate(0f, 180f, 0f);
     }
-
     private void Bark()
     {
         SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
@@ -114,7 +128,6 @@ public class PlayerMovement : MonoBehaviour
 
         Debug.Log("Bark!");
     }
-
     private void SpawnFollowObject()
     {
         if (followObject == null)
@@ -123,32 +136,11 @@ public class PlayerMovement : MonoBehaviour
             followObject = Instantiate(followObjectPrefab, transform.position, Quaternion.identity);
         }
     }
-
     private void DestroyFollowObject()
     {
         if(followObject != null)
         {
             Destroy(followObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("BlindBoy"))
-        {
-            interactUI.SetActive(true);
-            interactZone = true;
-            Debug.Log("Interact");
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("BlindBoy"))
-        {
-            interactUI.SetActive(false);
-            interactZone = false;
-            Debug.Log("Left Interact Zone");
         }
     }
 }
