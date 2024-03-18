@@ -89,11 +89,6 @@ public class PlayerMovement : MonoBehaviour
         {
             Bark();
         }
-
-        //if (Input.GetKeyDown(KeyCode.E) && interactZone)
-        //{
-        //    HoldBoy();
-        //}
     }
     private void FlipCharacter()
     {
@@ -126,9 +121,6 @@ public class PlayerMovement : MonoBehaviour
         {
             // Instantiate the follow object at the dog's position
             followObject = Instantiate(followObjectPrefab, transform.position, Quaternion.identity);
-
-            // Set the followObject for the BlindBoyMovement
-            //blindBoyMovement.SetFollowObject(followObject);
         }
     }
 
@@ -140,10 +132,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void HoldBoy()
-    {
-        
-    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("BlindBoy"))
@@ -160,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
         {
             interactUI.SetActive(false);
             interactZone = false;
-            Debug.Log("Left Interact");
+            Debug.Log("Left Interact Zone");
         }
     }
 }
