@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -5,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     //PUBLIC VARIABLE
     public GameObject interactUI;
     public Transform GroundCheck;
-    public GameObject followObjectPrefab;
     public LayerMask GroundObject;
     public float MoveSpeed;
     public float SprintSpeedMultiplier = 2f;
@@ -16,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
 
     //PRIVATE VARIABLE
     [SerializeField] private AudioClip barkSoundClip;
+    [SerializeField] private GameObject followObjectPrefab;
     [SerializeField] private BlindBoyMovement blindBoyMovement;
     private GameObject followObject;
     private Rigidbody2D player_rb;
@@ -32,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         player_rb = GetComponent<Rigidbody2D>();
         blindBoy = FindAnyObjectByType<BlindBoyMovement>();
 
-        if (blindBoy != null)
+        if (blindBoy != null )
         {
             Debug.LogError("BlindBoyMovement script not found on any GameObject in the scene.");
         }
@@ -117,14 +119,12 @@ public class PlayerMovement : MonoBehaviour
         if (IsFollowing)
         {
             Debug.Log("Start following!");
-            blindBoy.isFollowing = true;
-            DestroyFollowObject(); // Destroy old FollowObject
             SpawnFollowObject();
         }
         else
         {
             Debug.Log("Stop following!");
-            DestroyFollowObject(); // Destroy old FollowObject
+            DestroyFollowObject();
         }
 
         Debug.Log("Bark!");
@@ -137,12 +137,11 @@ public class PlayerMovement : MonoBehaviour
             followObject = Instantiate(followObjectPrefab, transform.position, Quaternion.identity);
         }
     }
-    public void DestroyFollowObject()
+    private void DestroyFollowObject()
     {
-        if (followObject != null)
+        if(followObject != null)
         {
             Destroy(followObject);
-            followObject = null; // Reset reference
         }
     }
 }
