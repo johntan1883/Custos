@@ -901,6 +901,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1221219575333312722, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
   m_PrefabInstance: {fileID: 1604884233}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1543836314 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6539112334615860073, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
+  m_PrefabInstance: {fileID: 1604884233}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543836313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ba339952155d4d448e554bd9b0ebf03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1604884233
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -953,50 +964,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dog
       objectReference: {fileID: 0}
-    - target: {fileID: 5338930847648910380, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 384
-      objectReference: {fileID: 0}
     - target: {fileID: 6539112334615860073, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
       propertyPath: blindBoyMovement
       value: 
       objectReference: {fileID: 1970596595}
-    - target: {fileID: 6539112334615860073, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: SprintSpeedMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7300110461303529563, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_Size.x
-      value: 0.69
-      objectReference: {fileID: 0}
-    - target: {fileID: 7300110461303529563, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_Size.y
-      value: 0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 7300110461303529563, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6043895293721478938, guid: 7f97b9412a7556d4d801a6a8aafdf7e4, type: 3}
-    - target: {fileID: 8854400362467264777, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.5383093
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854400362467264777, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.3448367
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854400362467264777, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5.2149
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854400362467264777, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 8854400362467264777, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.24
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1217,18 +1188,6 @@ PrefabInstance:
       value: BlindBoy
       objectReference: {fileID: 0}
     - target: {fileID: 5446243618536883096, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4.9520903
-      objectReference: {fileID: 0}
-    - target: {fileID: 5446243618536883096, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.9520907
-      objectReference: {fileID: 0}
-    - target: {fileID: 5446243618536883096, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4.9520903
-      objectReference: {fileID: 0}
-    - target: {fileID: 5446243618536883096, guid: 21506407d0c6efe4a830489452902391, type: 3}
       propertyPath: m_LocalPosition.x
       value: 34.55
       objectReference: {fileID: 0}
@@ -1268,30 +1227,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5584354324184818640, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7759564314024491969, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_Size.y
-      value: 0.97001517
-      objectReference: {fileID: 0}
-    - target: {fileID: 7759564314024491969, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.009461403
-      objectReference: {fileID: 0}
-    - target: {fileID: 7759564314024491969, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.014992416
-      objectReference: {fileID: 0}
-    - target: {fileID: 8897734848368036552, guid: 21506407d0c6efe4a830489452902391, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6957586377500742190, guid: bce929d61ee80b642bd2928220a61d8f, type: 3}
     - target: {fileID: 9117813817879189524, guid: 21506407d0c6efe4a830489452902391, type: 3}
       propertyPath: dog
       value: 
       objectReference: {fileID: 1543836313}
+    - target: {fileID: 9117813817879189524, guid: 21506407d0c6efe4a830489452902391, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1543836314}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
