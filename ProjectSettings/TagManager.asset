@@ -6,6 +6,9 @@ TagManager:
   tags:
   - BlindBoy
   - Key
+  - Platform
+  - Floor
+  - FollowObject
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - Ground
   - BlindBoy
   - Key
-  - 
+  - FollowObject
   - 
   - 
   - 

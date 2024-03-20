@@ -1,3 +1,4 @@
+//using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -113,17 +114,21 @@ public class PlayerMovement : MonoBehaviour
         //Play bark sound effect
         SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
         IsFollowing = !IsFollowing;
+        blindBoy.isFollowing = !blindBoy.isFollowing;
 
-        if (IsFollowing)
+        //if (IsFollowing)
+        if (IsFollowing == true)
         {
             Debug.Log("Start following!");
-            blindBoy.isFollowing = true;
+            //blindBoy.isFollowing = true;
             DestroyFollowObject(); // Destroy old FollowObject
             SpawnFollowObject();
         }
-        else
+
+        if (IsFollowing == false)
         {
             Debug.Log("Stop following!");
+            //blindBoy.isFollowing = false;
             DestroyFollowObject(); // Destroy old FollowObject
         }
 
