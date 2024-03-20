@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     //PUBLIC VARIABLE
     public GameObject interactUI;
+    public GameObject barkObjectPrefab;
     public Transform GroundCheck;
     public LayerMask GroundObject;
     public float MoveSpeed;
@@ -19,7 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip barkSoundClip;
     [SerializeField] private GameObject followObjectPrefab;
     [SerializeField] private BlindBoyMovement blindBoyMovement;
-    private GameObject followObject;
+    private GameObject currentBarkObject;
+    private GameObject boy;
     private Rigidbody2D player_rb;
     private BlindBoyMovement blindBoy;
     private float moveDirection;
@@ -38,6 +40,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.LogError("BlindBoyMovement script not found on any GameObject in the scene.");
         }
+    }
+
+    private void Start()
+    {
+        boy = GameObject.FindWithTag("BlindBoy");
     }
     void Update()
     {
@@ -116,32 +123,48 @@ public class PlayerMovement : MonoBehaviour
         SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
         IsFollowing = !IsFollowing;
 
-        if (IsFollowing)
+        //if (IsFollowing)
+        //{
+        //    Debug.Log("Start following!");
+        //    SpawnFollowObject();
+        //}
+        //else
+        //{
+        //    Debug.Log("Stop following!");
+        //    DestroyFollowObject();
+        //}
+
+        //If there's already a bark object, destroy it
+        if (currentBarkObject != null)
         {
-            Debug.Log("Start following!");
-            SpawnFollowObject();
+            Destroy(currentBarkObject);
         }
-        else
-        {
-            Debug.Log("Stop following!");
-            DestroyFollowObject();
-        }
+
+        //Spawn a new bark object at the dog's position
+        currentBarkObject = Instantiate(barkObjectPrefab, transform.position, Quaternion.identity);
+
+        //Get the target position for the boy to follow (only x value of bark object)
+        Vector3 targetPosition = currentBarkObject.transform.position;
+        targetPosition.y = boy.transform.position.y;//keep the same y value as the boy
+
+        //Make the boy follow the target position
+        boy.GetComponent<BlindBoyMovement>().FollowTarget(targetPosition);
 
         Debug.Log("Bark!");
     }
     private void SpawnFollowObject()
     {
-        if (followObject == null)
-        {
-            // Instantiate the follow object at the dog's position
-            followObject = Instantiate(followObjectPrefab, transform.position, Quaternion.identity);
-        }
+        //if (followObject == null)
+        //{
+        //    // Instantiate the follow object at the dog's position
+        //    followObject = Instantiate(followObjectPrefab, transform.position, Quaternion.identity);
+        //}
     }
     private void DestroyFollowObject()
     {
-        if(followObject != null)
-        {
-            Destroy(followObject);
-        }
+        //if(followObject != null)
+        //{
+        //    Destroy(followObject);
+        //}
     }
 }

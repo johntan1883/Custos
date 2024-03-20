@@ -12,8 +12,13 @@ public class BlindBoyMovement : MonoBehaviour
     public float fixedZPosition = 5f;
 
     private PlayerMovement playerMovement;
+    private Vector3 targetPosition; // Target position for the boy to move towards.
     public bool isHoldingDog = true;
 
+    public void FollowTarget(Vector3 target)
+    {
+        targetPosition = target;
+    }
     private void Start()
     {
         playerMovement = dog.GetComponent<PlayerMovement>();
@@ -21,27 +26,10 @@ public class BlindBoyMovement : MonoBehaviour
 
     private void Update()
     {
-        if (playerMovement.IsFollowing)
-        {
-            Vector2 targetPosition = new Vector2(dog.transform.position.x, Mathf.Max(dog.transform.position.y + yOffset, transform.position.y));
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, defaultMovingSpeed * Time.deltaTime);
-        }
-        if (playerMovement.IsFollowingDog)
-        {
-            Vector2 targetPosition = new Vector2(dog.transform.position.x, Mathf.Max(dog.transform.position.y + yOffset, transform.position.y));
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, followingDogSpeed * Time.deltaTime);
-        }
-
-        // Get the current position
-        Vector3 currentPosition = transform.position;
-
-        // Set the z position to the desired fixed z position
-        currentPosition.z = fixedZPosition;
-
-        // Apply the new position
-        transform.position = currentPosition;
-
         CheckHoldingDog();
+
+        // Move towards the target position only on the x-axis
+        transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetPosition.x, transform.position.y, transform.position.z), followingDogSpeed * Time.deltaTime);
     }
     
     public void HoldDog()

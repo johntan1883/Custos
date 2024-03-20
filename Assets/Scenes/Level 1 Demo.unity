@@ -958,6 +958,10 @@ PrefabInstance:
       value: 384
       objectReference: {fileID: 0}
     - target: {fileID: 6539112334615860073, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
+      propertyPath: barkObjectPrefab
+      value: 
+      objectReference: {fileID: 2787068571683518834, guid: 46817fd40199a83429fc4784a1267f78, type: 3}
+    - target: {fileID: 6539112334615860073, guid: a3500b62402feaf49bb23863eddb25e6, type: 3}
       propertyPath: blindBoyMovement
       value: 
       objectReference: {fileID: 1970596595}
