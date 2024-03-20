@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - BlindBoy
   - Key
-  - 
+  - Door
   - 
   - 
   - 
@@ -40,9 +40,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2965191741
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 1
-    uniqueID: 2965191741
+  - name: Front
+    uniqueID: 2598374917
     locked: 0
