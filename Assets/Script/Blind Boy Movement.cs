@@ -22,6 +22,8 @@ public class BlindBoyMovement : MonoBehaviour
     private void Start()
     {
         playerMovement = dog.GetComponent<PlayerMovement>();
+
+        targetPosition = transform.position;
     }
 
     private void Update()
@@ -40,10 +42,15 @@ public class BlindBoyMovement : MonoBehaviour
     private void HoldDogLogic()
     {
         // Make the blind boy a child of the dog
-        transform.SetParent(dog.transform);
+        //transform.SetParent(dog.transform);
+
+        Transform target = dog.transform.Find("TargetFollowPos");
+
+        //Debug.Log(target);
+
 
         // Set the local position relative to the dog's position
-        transform.localPosition = new Vector3(-1.19f, 0.8f, 0f);
+        targetPosition = dog.transform.position;
 
         // Disable boy's movement (assuming Rigidbody2D is used)
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
