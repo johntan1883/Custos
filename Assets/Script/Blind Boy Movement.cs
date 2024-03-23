@@ -40,23 +40,28 @@ public class BlindBoyMovement : MonoBehaviour
     }
     public void CheckSurroundingsForInteraction()
     {
+        //Perform raycast to check for nearby interactable objects
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero);
 
+        if (hit.collider != null)
+        {
+            Interactable interactable = hit.collider.GetComponent<Interactable>();
+            if ( interactable != null )
+            {
+                interactable.BoyInteract();
+            }
+        }
     }
     private void HoldDogLogic()
     {
-        // Make the blind boy a child of the dog
-        //transform.SetParent(dog.transform);
-
+        //Find the taget to follow on dog
         Transform target = dog.transform.Find("TargetFollowPos");
 
-        //Debug.Log(target);
+        // Set the position to follow
+        targetPosition = target.position;
 
-
-        // Set the local position relative to the dog's position
-        targetPosition = dog.transform.position;
-
-        // Disable boy's movement (assuming Rigidbody2D is used)
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        //// Disable boy's movement (assuming Rigidbody2D is used)
+        //GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
     private void ReleaseDog()
     {
