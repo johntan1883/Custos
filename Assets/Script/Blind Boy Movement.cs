@@ -38,7 +38,10 @@ public class BlindBoyMovement : MonoBehaviour
     {
         isHoldingDog = !isHoldingDog;
     }
+    public void CheckSurroundingsForInteraction()
+    {
 
+    }
     private void HoldDogLogic()
     {
         // Make the blind boy a child of the dog
@@ -55,12 +58,10 @@ public class BlindBoyMovement : MonoBehaviour
         // Disable boy's movement (assuming Rigidbody2D is used)
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
-
     private void ReleaseDog()
     {
         transform.parent = null;
     }
-
     private void CheckHoldingDog() 
     {
         if (isHoldingDog)

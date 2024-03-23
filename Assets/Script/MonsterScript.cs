@@ -35,19 +35,6 @@ public class MonsterScript : MonoBehaviour
             targetIndex = (targetIndex + 1) % targets.Length;
         }
     }
-
-    private void OnDrawGizmos()
-    {
-        // Draw lines between the platform and all movement targets
-        if (platform != null && targets != null)
-        {
-            Gizmos.color = Color.blue;
-            foreach (Vector3 target in targets)
-            {
-                Gizmos.DrawLine(platform.position, target);
-            }
-        }
-    }
 }
 
 

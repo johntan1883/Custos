@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     //PRIVATE VARIABLE
     [SerializeField] private AudioClip barkSoundClip;
+    [SerializeField] private AudioClip barkSoundForInteractionClip;
     [SerializeField] private GameObject followObjectPrefab;
     [SerializeField] private BlindBoyMovement blindBoyMovement;
     private GameObject currentBarkObject;
@@ -111,6 +112,13 @@ public class PlayerMovement : MonoBehaviour
         {
             Bark();
         }
+
+        //Bark Input 2 (to notify the boy to interact)
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            BarkForInteraction();   
+        }
+
     }
     private void FlipCharacter()
     {
@@ -122,17 +130,6 @@ public class PlayerMovement : MonoBehaviour
         //Play bark sound effect
         SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
         IsFollowing = !IsFollowing;
-
-        //if (IsFollowing)
-        //{
-        //    Debug.Log("Start following!");
-        //    SpawnFollowObject();
-        //}
-        //else
-        //{
-        //    Debug.Log("Stop following!");
-        //    DestroyFollowObject();
-        //}
 
         //If there's already a bark object, destroy it
         if (currentBarkObject != null)
@@ -151,6 +148,11 @@ public class PlayerMovement : MonoBehaviour
         boy.GetComponent<BlindBoyMovement>().FollowTarget(targetPosition);
 
         Debug.Log("Bark!");
+    }
+    private void BarkForInteraction()
+    {
+        //Play bark sound effect
+        SoundFXManager.Instance.PlaySoundFXClip(barkSoundForInteractionClip, transform,1f);
     }
     private void SpawnFollowObject()
     {
