@@ -153,6 +153,9 @@ public class PlayerMovement : MonoBehaviour
     {
         //Play bark sound effect
         SoundFXManager.Instance.PlaySoundFXClip(barkSoundForInteractionClip, transform,1f);
+
+        //Notify the boy to check surroundings for interaction
+        boy.GetComponent<BlindBoyMovement>().CheckSurroundingsForInteraction();
     }
     private void SpawnFollowObject()
     {

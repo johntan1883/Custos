@@ -26,6 +26,10 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    public void BoyInteract()
+    {
+        Debug.Log("Interacting with " + gameObject.name);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -34,7 +38,6 @@ public class Interactable : MonoBehaviour
             Debug.Log("Player now in range");
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
