@@ -35,11 +35,11 @@ public class BoyInteraction : InteractableBase
 
     private void BoyHoldDog()
     {
-        //// Set the parent of the boy to the dog
-        //transform.parent = _player.transform;
+        // Set the parent of the boy to the dog
+        _interactionObject.transform.parent = _player.transform;
 
         // Move the boy to the holding position
-        transform.position = boyHoldingPosition.position;
+        _interactionObject.transform.position = boyHoldingPosition.position;
 
         // Set the flag indicating that the boy is held by the dog
         isHoldingDog = true;
@@ -47,19 +47,34 @@ public class BoyInteraction : InteractableBase
         // Set the target transform for the boy to follow the dog
         boy.SetTargetTransform(_player.transform);
 
+        // Set the indicator's parent to the boy
+        _interactableIndicatorIcon.transform.parent = _interactionObject.transform;
+
+        // Ensure the indicator is active
+        _interactableIndicatorIcon.SetActive(true);
+
+        // Update the indicator's position to match the boy's position
+        _interactableIndicatorIcon.transform.localPosition = Vector3.zero;
+
         Debug.Log("Boy picked up by dog");
     }
 
     private void BoyLetGoDog()
     {
-        //// Set the parent of the boy to null (no longer held by the dog)
-        //transform.parent = null;
+        // Set the parent of the boy to null (no longer held by the dog)
+        _interactionObject.transform.parent = null;
 
         // Set the flag indicating that the boy is not held by the dog
         isHoldingDog = false;
 
         // Clear the target transform (stop following the dog)
         boy.ClearTargetTransform();
+
+        // Reset the indicator's parent
+        _interactableIndicatorIcon.transform.parent = null;
+
+        // Set the indicator inactive
+        _interactableIndicatorIcon.SetActive(false);
 
         Debug.Log("Boy put down by dog");
     }

@@ -150,7 +150,7 @@ public class Player : MonoBehaviour
     {
         if (UserInput.instance.controls.Interact.BarkToFollow.WasPressedThisFrame())
         {
-            SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
+            SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f, "PlayerSound");
 
             //If there's already a bark object, destroy it
             if (objectToFollow != null)

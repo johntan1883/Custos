@@ -139,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
     private void Bark()
     {
         //Play bark sound effect
-        SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
+        SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f,"PlayerSound");
         IsFollowing = !IsFollowing;
 
         //If there's already a bark object, destroy it
@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
     private void BarkForInteraction()
     {
         //Play bark sound effect
-        SoundFXManager.Instance.PlaySoundFXClip(barkSoundForInteractionClip, transform,1f);
+        SoundFXManager.Instance.PlaySoundFXClip(barkSoundForInteractionClip, transform,1f, "PlayerSound");
 
         //Notify the boy to check surroundings for interaction
         boy.GetComponent<BlindBoyMovement>().CheckSurroundingsForInteraction();

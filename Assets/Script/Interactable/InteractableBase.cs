@@ -11,6 +11,7 @@ public abstract class InteractableBase : MonoBehaviour
     protected bool _isInteractable;
 
     protected GameObject _player;
+    protected GameObject _blindBoy;
 
     protected CircleCollider2D _circleColl;
 
@@ -24,6 +25,7 @@ public abstract class InteractableBase : MonoBehaviour
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player").gameObject;
+        _blindBoy = GameObject.FindGameObjectWithTag("BlindBoy").gameObject;
         _interactableIndicatorIcon.SetActive(false);
     }
 

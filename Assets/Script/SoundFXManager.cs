@@ -16,7 +16,7 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform,float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform,float volume, string sfxObjectTag)
     {
         //SPAWN IN GAME OBJECT
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
@@ -26,6 +26,9 @@ public class SoundFXManager : MonoBehaviour
 
         //ASSIGN VOLUME
         audioSource.volume = volume;
+
+        //ASSIGN TAG FOR THE SFX OBJ
+        audioSource.gameObject.tag = sfxObjectTag;
 
         //PLAY SOUND
         audioSource.Play();
