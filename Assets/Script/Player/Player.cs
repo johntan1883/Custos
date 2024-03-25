@@ -29,6 +29,9 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public bool IsFacingRight;
 
+    [Header("Game Over")]
+    public GameObject gameOverCanvas;
+
     private Rigidbody2D rb;
     private Collider2D coll;
     private BoyInteraction boyInteraction; // Reference to BoyInteraction script 
@@ -282,4 +285,17 @@ public class Player : MonoBehaviour
     }
 
     #endregion
+
+    private void OnDestroy()
+    {
+        EnableObject();
+    }
+
+    private void EnableObject()
+    {
+        if (gameOverCanvas != null)
+        {
+            gameOverCanvas.SetActive(true);
+        }
+    }
 }

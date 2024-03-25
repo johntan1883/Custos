@@ -8,6 +8,7 @@ public class UI : MonoBehaviour
 {
     public static bool Paused = false;
     public GameObject PauseMenuCanvas;
+    public GameObject ControlsCanvas;
     public GameObject Player;
     // Start is called before the first frame update
     void Start()
@@ -73,5 +74,13 @@ public class UI : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Level 1 Demo");
+    }
+    public void BackControls()
+    {
+        ControlsCanvas.SetActive(false);
+    }
+    public void Controls()
+    {
+        ControlsCanvas.SetActive(true);
     }
 }
