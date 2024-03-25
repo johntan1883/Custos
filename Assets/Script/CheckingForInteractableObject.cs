@@ -9,16 +9,12 @@ public class CheckingForInteractableObject : MonoBehaviour
 
     [SerializeField] private float speed = 20f;
     [SerializeField] private float distance = 10f;
-    [SerializeField] private float soundVolume = 0.3f;
-    RaycastHit2D hit;
-
-    private AudioSource mySource;
     private Vector3 rayDirection; //Direction of the ray
 
     // Start is called before the first frame update
     void Start()
     {
-        mySource = GetComponent<AudioSource>();
+        
     }
 
     // Update is called once per frame
@@ -36,16 +32,23 @@ public class CheckingForInteractableObject : MonoBehaviour
         // Draw the ray
         if (hit.collider != null)
         {
-            Debug.DrawRay(transform.position, rayDirection * distance, Color.white);
+            Debug.DrawRay(transform.position, rayDirection * distance, Color.green);
             Debug.Log("Did hit");
 
-            // Play sound
-            mySource.volume = soundVolume;
-            mySource.Play();
+            //Access the script attached to the hit GameObject
+            IBoyInteractable boyInteractable = hit.collider.gameObject.GetComponent<IBoyInteractable>();
+
+            if (boyInteractable != null)
+            {
+                boyInteractable.BoyInteract();
+
+                //Disble the CheckingForInteract object
+                //gameObject.SetActive(false);
+            }
         }
         else
         {
-            Debug.DrawRay(transform.position, rayDirection * distance, Color.black);
+            Debug.DrawRay(transform.position, rayDirection * distance, Color.white);
             Debug.Log("Did not hit");
         }
     }

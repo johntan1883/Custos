@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isJumping = false;
     private bool isGrounded;
     private bool isSprinting = false;
+    public bool wasInteractPressed = false;
 
 
     private void Awake()
@@ -95,6 +96,16 @@ public class PlayerMovement : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             isSprinting = false;
+        }
+
+        //Interact Input
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            wasInteractPressed = true;
+        }
+        else
+        {
+            wasInteractPressed = false;
         }
 
         //Jump Input

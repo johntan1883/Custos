@@ -5,15 +5,18 @@ using UnityEngine.EventSystems;
 
 public class BlindBoyMovement : MonoBehaviour
 {
+    //Public Variable
+    public float fixedZPosition = 5f;
+    public bool isHoldingDog = true;
+    public bool isHoldingKey = true;
+
     [SerializeField] private GameObject dog;
     [SerializeField] private float defaultMovingSpeed = 1.5f;
     [SerializeField] private float followingDogSpeed = 15f; // Speed when following dog
     [SerializeField] private float yOffset = 0.5f; // Offset in the y direction
-    public float fixedZPosition = 5f;
-
     private PlayerMovement playerMovement;
     private Vector3 targetPosition; // Target position for the boy to move towards.
-    public bool isHoldingDog = true;
+    
 
     public void FollowTarget(Vector3 target)
     {
@@ -48,7 +51,7 @@ public class BlindBoyMovement : MonoBehaviour
             Interactable interactable = hit.collider.GetComponent<Interactable>();
             if ( interactable != null )
             {
-                interactable.BoyInteract();
+                //interactable.BoyInteract();
             }
         }
     }
