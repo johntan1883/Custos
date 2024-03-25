@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float jumpTime = 0.5f;
 
+    [Header("Bark to follow")]
+    private GameObject objectToFollow;
+    [SerializeField] private GameObject objectToFollowPrefab;
+
     [Header("Turn Check")]
     [SerializeField] private GameObject lLeg;
     [SerializeField] private GameObject rLeg;
@@ -19,11 +24,15 @@ public class Player : MonoBehaviour
     [SerializeField] private float extraHeight = 0.25f;
     [SerializeField] private LayerMask whatIsGround;
 
+    [Header("Sound")]
+    [SerializeField] private AudioClip barkSoundClip;
+
     [HideInInspector] public bool IsFacingRight;
 
     private Rigidbody2D rb;
     private Collider2D coll;
-    private BoyInteraction boyInteraction; // Reference to BoyInteraction script
+    private BoyInteraction boyInteraction; // Reference to BoyInteraction script 
+    private Boy boy;
 
     private float moveInput;
 
@@ -46,12 +55,24 @@ public class Player : MonoBehaviour
         {
             Debug.LogError("BoyInteraction script not found.");
         }
+
+        // Find and store reference to Boy script
+        boy = FindObjectOfType<Boy>();
+        if (boy == null)
+        {
+            Debug.LogError("Boy script not found.");
+        }
+
     }
 
     private void Update()
     {
         Move();
         Jump();
+        Bark();
+
+        // Move the boy towards the target object
+        boy.MoveToTarget();
     }
 
     #region Movement Functions
@@ -123,6 +144,28 @@ public class Player : MonoBehaviour
         }
 
         DrawGroundCheck();
+    }
+
+    private void Bark()
+    {
+        if (UserInput.instance.controls.Interact.BarkToFollow.WasPressedThisFrame())
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(barkSoundClip, transform, 0.3f);
+
+            //If there's already a bark object, destroy it
+            if (objectToFollow != null)
+            {
+                Destroy(objectToFollow);
+            }
+
+            //Spawn a new bark object at the dog's position
+            objectToFollow = Instantiate(objectToFollowPrefab, transform.position, Quaternion.identity);
+
+            Debug.Log("Bark!");
+
+            // Move the boy towards the new object to follow
+            boy.SetTargetTransform(objectToFollow.transform);
+        }
     }
 
     #endregion

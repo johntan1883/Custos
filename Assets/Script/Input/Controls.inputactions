@@ -107,8 +107,17 @@
             "actions": [
                 {
                     "name": "Interact",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "cd025cae-e00c-4eec-8202-6fefdbcf2275",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "BarkToFollow",
+                    "type": "Button",
+                    "id": "c78ee68e-d9b7-4ce5-8be3-99bcd7e2424a",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -124,6 +133,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e0688941-4376-43c9-8bd7-e470173bc627",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "BarkToFollow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

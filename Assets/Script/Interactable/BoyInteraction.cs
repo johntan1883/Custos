@@ -6,50 +6,61 @@ public class BoyInteraction : InteractableBase
 {
     [SerializeField] private Transform boyHoldingPosition;
     [SerializeField] private GameObject _interactionObject;
+    private Boy boy; // Reference to the Boy script
+
 
     public bool isHoldingDog;
 
+    private void Start()
+    {
+        //Find and store reference to the Boy script
+        boy = _interactionObject.GetComponent<Boy>();
+        if (boy == null)
+        {
+            Debug.LogError("Boy script not found.");
+        }
+    }
+
     public override void Interact()
     {
-        if (isHoldingDog)
+        if (!isHoldingDog)
         {
-            BoyLetGoDog();
+            BoyHoldDog();
         }
         else
         {
-            BoyHoldDog();
+            BoyLetGoDog();
         }
     }
 
     private void BoyHoldDog()
     {
-        // Ensure the player object is set as the parent of the Interaction object
-        _interactionObject.transform.parent = _player.transform;
+        //// Set the parent of the boy to the dog
+        //transform.parent = _player.transform;
 
-        // Ensure the Key object is set as the parent of the Interaction object
-        gameObject.transform.parent = _interactionObject.transform;
+        // Move the boy to the holding position
+        transform.position = boyHoldingPosition.position;
 
-        // Move the Interaction object (which now includes the Key) to the holding position
-        _interactionObject.transform.position = boyHoldingPosition.position;
-
-        //
-        _interactionObject.GetComponent<Rigidbody2D>().isKinematic = true;
-
+        // Set the flag indicating that the boy is held by the dog
         isHoldingDog = true;
 
-        Debug.Log("Boy is holding dog");
+        // Set the target transform for the boy to follow the dog
+        boy.SetTargetTransform(_player.transform);
+
+        Debug.Log("Boy picked up by dog");
     }
 
     private void BoyLetGoDog()
     {
-        // Remove the Interaction object from being a child of the player
-        _interactionObject.transform.parent = null;
+        //// Set the parent of the boy to null (no longer held by the dog)
+        //transform.parent = null;
 
-        _interactionObject.GetComponent<Rigidbody2D>().isKinematic = false;
-
+        // Set the flag indicating that the boy is not held by the dog
         isHoldingDog = false;
 
-        Debug.Log("Boy is not holding dog");
-    }
+        // Clear the target transform (stop following the dog)
+        boy.ClearTargetTransform();
 
+        Debug.Log("Boy put down by dog");
+    }
 }
