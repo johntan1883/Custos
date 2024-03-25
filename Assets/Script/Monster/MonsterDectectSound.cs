@@ -2,13 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Monster : MonoBehaviour
+public class MonsterDectectSound : MonoBehaviour
 {
+    [SerializeField] private GameObject monsterPrefab;
     [SerializeField] private float soundDetectionRadius = 5f;
+
+    private bool isDetectingSound = true;
 
     private void Update()
     {
-        DetectSound();
+        if (isDetectingSound)
+        {
+            DetectSound();
+        }
     }
 
     private void DetectSound()
@@ -21,21 +27,32 @@ public class Monster : MonoBehaviour
             // Check if the sound object belongs to the player
             if (collider.CompareTag("PlayerSound"))
             {
-                // You can add further checks here if needed, like line of sight check
-
-                // Player sound detected, implement your monster's behavior here
-                Debug.Log("Player sound detected!");
-
-                // For example, you can make the monster move towards the player
-                // or trigger an attack, etc.
+                // Player sound detected, spawn a new monster and disable this one
+                SpawnMonster();
+                DisableMonster();
+                break; // Exit the loop after spawning one monster
             }
         }
     }
 
+    private void SpawnMonster()
+    {
+        // Instantiate the monster prefab at the same position as this monster
+        GameObject newMonster = Instantiate(monsterPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void DisableMonster()
+    {
+        // Disable this monster GameObject
+        gameObject.SetActive(false);
+    }
+
+    #region Debug Function
     private void OnDrawGizmosSelected()
     {
         // Visualize the detection radius in the editor
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, soundDetectionRadius);
     }
+    #endregion
 }
