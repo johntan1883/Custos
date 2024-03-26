@@ -28012,6 +28012,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1957411803}
     m_Modifications:
+    - target: {fileID: 2235705137650759305, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
+      propertyPath: m_TagString
+      value: BoyHoldingPosition
+      objectReference: {fileID: 0}
     - target: {fileID: 4120884289628180591, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.97
@@ -28379,6 +28383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1957411803}
     m_Modifications:
+    - target: {fileID: 1115104212745243058, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
+      propertyPath: m_TagString
+      value: HoldingPosition
+      objectReference: {fileID: 0}
     - target: {fileID: 1124104874284314056, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.11
