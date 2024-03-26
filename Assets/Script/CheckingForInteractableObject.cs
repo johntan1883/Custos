@@ -42,5 +42,7 @@ public class CheckingForInteractableObject : MonoBehaviour
         {
             boyInteractable.BoyInteract();
         }
+
+        gameObject.SetActive(false);
     }
 }
