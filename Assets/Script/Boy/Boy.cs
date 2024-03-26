@@ -5,6 +5,8 @@ using UnityEngine;
 public class Boy : MonoBehaviour
 {
     public bool IsHoldingKey = false;
+
+    [SerializeField] private GameObject CheckForInteractObject;
     [SerializeField] private Animator anim;
     [SerializeField] private float movingSpeed = 5f;
     private Transform targetTransform; // The target transform for the boy to follow
@@ -46,5 +48,10 @@ public class Boy : MonoBehaviour
                 targetTransform = null;
             }
         }
+    }
+
+    public void CheckForInteract()
+    {
+        CheckForInteractObject.SetActive(true);
     }
 }
