@@ -10,6 +10,19 @@ public class KeyInteractionForBoy : MonoBehaviour,IBoyInteractable
 
     private bool boyPickedUpKey;
 
+    private void Start()
+    {
+        if (boyObject == null)
+        {
+            boyObject = GameObject.FindGameObjectWithTag("BlindBoy");
+        }
+
+        if (holdingPosition == null)
+        {
+            holdingPosition = GameObject.FindGameObjectWithTag("BoyHoldingPosition").transform;
+        }
+    }
+
     public void BoyInteract()
     {
         if (boyPickedUpKey)

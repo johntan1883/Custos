@@ -15,6 +15,8 @@ public class PropInteractionForBoy : MonoBehaviour, IBoyInteractable
             spawnedKey = true;
             Debug.Log("Spawn Key");
         }
+
+        gameObject.GetComponent<Collider2D>().enabled = false;
     }
 
     

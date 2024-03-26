@@ -8,6 +8,15 @@ public class KeyInteraction : InteractableBase
     [SerializeField] private GameObject _interactionObject;
 
     private bool pickedUpKey;
+
+    private void Start()
+    {
+        if (holdingPosition == null)
+        {
+            holdingPosition = GameObject.FindGameObjectWithTag("HoldingPosition").transform;
+        }
+    }
+
     public override void Interact()
     {
         if (pickedUpKey)
