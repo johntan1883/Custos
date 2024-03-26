@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -6043895293721478938, guid: 7f97b9412a7556d4d801a6a8aafdf7e4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -177,6 +177,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3661739200784022347}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2553243789661186214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6448225923916625307}
+  m_Layer: 0
+  m_Name: Legs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6448225923916625307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2553243789661186214}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3661739200784022347}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2687563715746427833
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,8 +251,9 @@ GameObject:
   - component: {fileID: 858174011142932413}
   - component: {fileID: 2132415240092643826}
   - component: {fileID: 4664065957474384066}
+  - component: {fileID: 1668488451770976581}
   m_Layer: 3
-  m_Name: Dog Test
+  m_Name: Player_DOG
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -341,7 +373,32 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   barkSoundClip: {fileID: 8300000, guid: 8d10ced49b092b643a664fa78f7bc13f, type: 3}
+  barkToFollowSoundClip: {fileID: 8300000, guid: 14708c26ac9840e4387ef5053c3cff13, type: 3}
   IsFacingRight: 0
+  gameOverCanvas: {fileID: 0}
+  anim: {fileID: 0}
+--- !u!95 &1668488451770976581
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3035422683118373134}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 586304cc07290ca47ba2047862154538, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3138942093895307634
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,5 +559,6 @@ Transform:
   - {fileID: 4196138958435158556}
   - {fileID: 8794200137036908377}
   - {fileID: 640799240786189775}
+  - {fileID: 6448225923916625307}
   m_Father: {fileID: 6558641063752638098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
