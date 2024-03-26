@@ -12,6 +12,7 @@ TagManager:
   - BoyHoldingPosition
   - EndCan
   - EndKey
+  - SFX
   layers:
   - Default
   - TransparentFX

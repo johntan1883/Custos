@@ -1828,7 +1828,7 @@ Transform:
   m_GameObject: {fileID: 813948242}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.728615, y: -7.6888666, z: -7.53}
+  m_LocalPosition: {x: 30.118614, y: -1.0122669, z: -7.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4768,7 +4768,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1329775555
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 6626072957444914229, guid: 2256ac11740d37843932a5ec5d2e0a00, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6687,8 +6687,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1329775555
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.03333336, y: 0.03333336, z: 0}
@@ -18782,9 +18782,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -578297075
-  m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingLayerID: -1329775555
+  m_SortingLayer: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: -727385178203188465, guid: a2ec7aa3a3f2f6443b8d5c013dc7cce7, type: 3}
   m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
   m_FlipX: 0
@@ -20849,8 +20849,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1329775555
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -7377295934022830490, guid: a6802ab011a44cf43b3c3ba4339ac7b5, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -21797,7 +21797,7 @@ Transform:
   m_GameObject: {fileID: 1915530489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.728615, y: -7.6888666, z: -7.53}
+  m_LocalPosition: {x: 30.118614, y: -1.0122669, z: -7.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21863,6 +21863,7 @@ MonoBehaviour:
   doorOpenSprite: {fileID: 932274851}
   doorCloseSprite: {fileID: 2005429623}
   _blindBoy: {fileID: 369621783}
+  openDoorSFX: {fileID: 8300000, guid: b59b5f3060800144bb9bca7a9e46225c, type: 3}
 --- !u!61 &1949548472
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -29256,7 +29257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4120884289628180591, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.72
+      value: 0.36
       objectReference: {fileID: 0}
     - target: {fileID: 4120884289628180591, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29377,6 +29378,14 @@ PrefabInstance:
     - target: {fileID: 4843033095815289157, guid: 6f89e609e519ff743a2932ea5eb9f1a9, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633158272537923963, guid: 6f89e609e519ff743a2932ea5eb9f1a9, type: 3}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633158272537923963, guid: 6f89e609e519ff743a2932ea5eb9f1a9, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1329775555
       objectReference: {fileID: 0}
     - target: {fileID: 8375106094654274260, guid: 6f89e609e519ff743a2932ea5eb9f1a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -29667,11 +29676,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558641063752638098, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.57
+      value: -3.18
       objectReference: {fileID: 0}
     - target: {fileID: 6558641063752638098, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.4565997
+      value: 3.22
       objectReference: {fileID: 0}
     - target: {fileID: 6558641063752638098, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       propertyPath: m_LocalPosition.z
