@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private AudioClip barkSoundClip;
+    [SerializeField] private AudioClip barkToFollowSoundClip;
 
     [HideInInspector] public bool IsFacingRight;
 
@@ -75,6 +76,7 @@ public class Player : MonoBehaviour
         Move();
         Jump();
         Bark();
+        BarkToInteract();
 
         // Move the boy towards the target object
         boy.MoveToTarget();
@@ -176,6 +178,16 @@ public class Player : MonoBehaviour
 
             // Move the boy towards the new object to follow
             boy.SetTargetTransform(objectToFollow.transform);
+        }
+    }
+
+    private void BarkToInteract()
+    {
+        if (UserInput.instance.controls.Interact.BarkToInteract.WasPerformedThisFrame())
+        {
+            SoundFXManager.Instance.PlaySoundFXClip(barkToFollowSoundClip, transform, 1f, "PlayerSound");
+
+            Debug.Log("GET TO WORK BOY");
         }
     }
 

@@ -144,6 +144,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""BarkToInteract"",
+                    ""type"": ""Button"",
+                    ""id"": ""4ab5e1be-2191-4733-94aa-1c845fd78313"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -168,6 +177,17 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""BarkToFollow"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e4b16c50-42b4-4e8c-959a-5b0fe52a48a5"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BarkToInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -190,6 +210,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Interact = asset.FindActionMap("Interact", throwIfNotFound: true);
         m_Interact_Interact = m_Interact.FindAction("Interact", throwIfNotFound: true);
         m_Interact_BarkToFollow = m_Interact.FindAction("BarkToFollow", throwIfNotFound: true);
+        m_Interact_BarkToInteract = m_Interact.FindAction("BarkToInteract", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -345,12 +366,14 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private List<IInteractActions> m_InteractActionsCallbackInterfaces = new List<IInteractActions>();
     private readonly InputAction m_Interact_Interact;
     private readonly InputAction m_Interact_BarkToFollow;
+    private readonly InputAction m_Interact_BarkToInteract;
     public struct InteractActions
     {
         private @Controls m_Wrapper;
         public InteractActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Interact => m_Wrapper.m_Interact_Interact;
         public InputAction @BarkToFollow => m_Wrapper.m_Interact_BarkToFollow;
+        public InputAction @BarkToInteract => m_Wrapper.m_Interact_BarkToInteract;
         public InputActionMap Get() { return m_Wrapper.m_Interact; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -366,6 +389,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @BarkToFollow.started += instance.OnBarkToFollow;
             @BarkToFollow.performed += instance.OnBarkToFollow;
             @BarkToFollow.canceled += instance.OnBarkToFollow;
+            @BarkToInteract.started += instance.OnBarkToInteract;
+            @BarkToInteract.performed += instance.OnBarkToInteract;
+            @BarkToInteract.canceled += instance.OnBarkToInteract;
         }
 
         private void UnregisterCallbacks(IInteractActions instance)
@@ -376,6 +402,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @BarkToFollow.started -= instance.OnBarkToFollow;
             @BarkToFollow.performed -= instance.OnBarkToFollow;
             @BarkToFollow.canceled -= instance.OnBarkToFollow;
+            @BarkToInteract.started -= instance.OnBarkToInteract;
+            @BarkToInteract.performed -= instance.OnBarkToInteract;
+            @BarkToInteract.canceled -= instance.OnBarkToInteract;
         }
 
         public void RemoveCallbacks(IInteractActions instance)
@@ -414,5 +443,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     {
         void OnInteract(InputAction.CallbackContext context);
         void OnBarkToFollow(InputAction.CallbackContext context);
+        void OnBarkToInteract(InputAction.CallbackContext context);
     }
 }
