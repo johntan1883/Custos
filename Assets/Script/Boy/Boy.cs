@@ -5,10 +5,14 @@ using UnityEngine;
 public class Boy : MonoBehaviour
 {
     public bool IsHoldingKey = false;
-
+    [SerializeField] private Animator anim;
     [SerializeField] private float movingSpeed = 5f;
     private Transform targetTransform; // The target transform for the boy to follow
 
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
     // Method to set the target transform for the boy to follow
     public void SetTargetTransform(Transform target)
     {
@@ -32,6 +36,7 @@ public class Boy : MonoBehaviour
 
             // Move the boy towards the target transform
             transform.position += direction * movingSpeed * Time.deltaTime;
+            anim.SetBool("isWalkingB", true);
 
             // Check if the boy has reached close to the target transform, then stop moving
             float distance = Vector3.Distance(transform.position, targetTransform.position);

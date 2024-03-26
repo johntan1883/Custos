@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public GameObject gameOverCanvas;
 
     private Rigidbody2D rb;
+    [SerializeField]private Animator anim;
     private Collider2D coll;
     private BoyInteraction boyInteraction; // Reference to BoyInteraction script 
     private Boy boy;
@@ -49,6 +50,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
+        anim = GetComponent<Animator>();
 
         StartDirectionCheck();
 
@@ -86,7 +88,13 @@ public class Player : MonoBehaviour
 
         if (moveInput > 0 || moveInput < 0)
         {
+            anim.SetBool("isWalking", true);
             TurnCheck();
+        }
+
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
 
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
