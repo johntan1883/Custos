@@ -53,14 +53,14 @@ public class Player : MonoBehaviour
         StartDirectionCheck();
 
         // Find and store reference to BoyInteraction script
-        boyInteraction = FindObjectOfType<BoyInteraction>();
+        boyInteraction = FindFirstObjectByType<BoyInteraction>();
         if (boyInteraction == null)
         {
             Debug.LogError("BoyInteraction script not found.");
         }
 
         // Find and store reference to Boy script
-        boy = FindObjectOfType<Boy>();
+        boy = FindFirstObjectByType<Boy>();
         if (boy == null)
         {
             Debug.LogError("Boy script not found.");

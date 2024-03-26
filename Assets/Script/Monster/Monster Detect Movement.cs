@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class MonsterScript : MonoBehaviour
+public class MonsterDetectMovement : MonoBehaviour
 {
     public Transform platform;
     public Transform startPoint;

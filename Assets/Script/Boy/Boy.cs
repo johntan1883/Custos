@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Boy : MonoBehaviour
 {
+    public bool IsHoldingKey = false;
+
     [SerializeField] private float movingSpeed = 5f;
     private Transform targetTransform; // The target transform for the boy to follow
 
