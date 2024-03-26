@@ -7,9 +7,17 @@ public class MonsterMovement : MonoBehaviour
 {
     [SerializeField] private Transform playerTransform; // Reference to the player's transform
     [SerializeField] private float moveSpeed = 3f; // Speed at which the monster moves towards the player
+    [SerializeField] private AudioClip breakGlassSound;
 
     private void Start()
     {
+        StartCoroutine(StartDelay());
+    }
+
+    private IEnumerator StartDelay()
+    {
+        yield return new WaitForSeconds(1f);
+
         GameObject playerObject = GameObject.FindWithTag("Player");
 
         // Check if the player GameObject was found
