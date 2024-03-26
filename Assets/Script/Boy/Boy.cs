@@ -8,6 +8,8 @@ public class Boy : MonoBehaviour
 
     [SerializeField] private GameObject CheckForInteractObject;
     [SerializeField] private Animator anim;
+    [SerializeField] private GameObject Sprite;
+
     [SerializeField] private float movingSpeed = 5f;
     private Transform targetTransform; // The target transform for the boy to follow
 
@@ -53,5 +55,25 @@ public class Boy : MonoBehaviour
     public void CheckForInteract()
     {
         CheckForInteractObject.SetActive(true);
+
+        StartCoroutine(FlipSpriteTwice());
+    }
+
+    IEnumerator FlipSpriteTwice()
+    {
+        SpriteRenderer spriteRenderer = Sprite.GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+        {
+            // Flip sprite horizontally
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+            yield return new WaitForSeconds(0.5f); // Wait for a brief moment
+
+            // Flip sprite back to original orientation
+            spriteRenderer.flipX = !spriteRenderer.flipX;
+        }
+        else
+        {
+            Debug.LogError("SpriteRenderer component not found on spriteObject.");
+        }
     }
 }
