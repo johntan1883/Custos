@@ -32,6 +32,10 @@ public class KeyInteractionForBoy : MonoBehaviour,IBoyInteractable
         else
         {
             BoyGrabKey();
+            if (gameObject.GetComponent<GameEnder>() != null)
+            {
+                gameObject.GetComponent<GameEnder>().PickedUpEndKey = true;
+            }
         }
     }
 

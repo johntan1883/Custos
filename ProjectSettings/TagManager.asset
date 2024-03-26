@@ -10,6 +10,8 @@ TagManager:
   - GameOverCanva
   - HoldingPosition
   - BoyHoldingPosition
+  - EndCan
+  - EndKey
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - BlindBoy
   - Key
   - Interactable
-  - 
+  - Platform
   - 
   - 
   - 

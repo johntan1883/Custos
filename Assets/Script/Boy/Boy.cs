@@ -9,6 +9,7 @@ public class Boy : MonoBehaviour
     [SerializeField] private GameObject CheckForInteractObject;
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject Sprite;
+    public GameObject EndCan;
 
     [SerializeField] private float movingSpeed = 5f;
     private Transform targetTransform; // The target transform for the boy to follow
@@ -74,6 +75,18 @@ public class Boy : MonoBehaviour
         else
         {
             Debug.LogError("SpriteRenderer component not found on spriteObject.");
+        }
+    }
+    private void OnDestroy()
+    {
+        EnableObject();
+    }
+
+    private void EnableObject()
+    {
+        if (EndCan != null)
+        {
+            EndCan.SetActive(true);
         }
     }
 }
