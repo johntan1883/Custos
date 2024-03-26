@@ -35,9 +35,6 @@ public class BoyInteraction : InteractableBase
 
     private void BoyHoldDog()
     {
-        // Set the parent of the boy to the dog
-        _interactionObject.transform.parent = _player.transform;
-
         // Move the boy to the holding position
         _interactionObject.transform.position = boyHoldingPosition.position;
 
@@ -61,9 +58,6 @@ public class BoyInteraction : InteractableBase
 
     private void BoyLetGoDog()
     {
-        // Set the parent of the boy to null (no longer held by the dog)
-        _interactionObject.transform.parent = null;
-
         // Set the flag indicating that the boy is not held by the dog
         isHoldingDog = false;
 
