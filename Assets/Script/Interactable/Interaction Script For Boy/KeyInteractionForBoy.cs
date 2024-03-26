@@ -43,6 +43,8 @@ public class KeyInteractionForBoy : MonoBehaviour,IBoyInteractable
 
         boyPickedUpKey = true;
 
+        boyObject.GetComponent<Boy>().IsHoldingKey = boyPickedUpKey;
+
         Debug.Log("BOY PICK UP KEY");
     }
 
@@ -54,6 +56,8 @@ public class KeyInteractionForBoy : MonoBehaviour,IBoyInteractable
         _interactionObject.GetComponent<Rigidbody2D>().isKinematic = false;
 
         boyPickedUpKey = false;
+
+        boyObject.GetComponent<Boy>().IsHoldingKey = boyPickedUpKey;
 
         Debug.Log("BOY DROP KEY");
     }
