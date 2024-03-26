@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a0edc2774d91e14e958322ca4f37689
+guid: a2ec7aa3a3f2f6443b8d5c013dc7cce7
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,10 +107,10 @@ TextureImporter:
       name: DecoTiles1_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 96
-        width: 10
-        height: 16
+        x: 18
+        y: 95
+        width: 12
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: DecoTiles1_1
       rect:
         serializedVersion: 2
-        x: 84
-        y: 99
-        width: 8
-        height: 10
+        x: 83
+        y: 98
+        width: 10
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,10 +149,10 @@ TextureImporter:
       name: DecoTiles1_2
       rect:
         serializedVersion: 2
-        x: 16
-        y: 15
-        width: 95
-        height: 70
+        x: 15
+        y: 14
+        width: 97
+        height: 72
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,7 +169,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0a93239eac98ea74c87561045685ef2e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 

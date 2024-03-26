@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: DecoTiles1_1
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -7115656921632573121, guid: 8a0edc2774d91e14e958322ca4f37689, type: 3}
+  m_Sprite: {fileID: -7115656921632573121, guid: a2ec7aa3a3f2f6443b8d5c013dc7cce7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
