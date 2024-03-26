@@ -187,6 +187,8 @@ public class Player : MonoBehaviour
         {
             SoundFXManager.Instance.PlaySoundFXClip(barkToFollowSoundClip, transform, 1f, "PlayerSound");
 
+            boy.CheckForInteract();
+
             Debug.Log("GET TO WORK BOY");
         }
     }
