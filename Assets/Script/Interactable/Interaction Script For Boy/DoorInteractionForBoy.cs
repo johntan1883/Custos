@@ -19,26 +19,27 @@ public class DoorInteractionForBoy : MonoBehaviour, IBoyInteractable
         doorCloseSprite.SetActive(true);
         
         key = GameObject.FindGameObjectWithTag("Key").gameObject;
-
         if (key == null)
         {
             Debug.Log("Key is not found in the scene");
         }
 
         _blindBoy = GameObject.FindGameObjectWithTag("BlindBoy").gameObject;
-
         if (_blindBoy == null)
         {
             Debug.Log("Boy is not found in the scene");
         }
     }
-    
+
     public void BoyInteract()
     {
         if (_blindBoy.GetComponent<Boy>().IsHoldingKey)
         {
             doorCloseSprite.SetActive(false);
             doorOpenSprite.SetActive(true);
+            
+            GameObject Key = GameObject.FindGameObjectWithTag("Key");
+            Destroy(Key);
         }
     }
 }

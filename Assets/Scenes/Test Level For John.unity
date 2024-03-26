@@ -3516,6 +3516,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 912757771}
   m_CullTransparentMesh: 1
+--- !u!1 &932274851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5619155895605868015, guid: 4167f2316b3759d478640f474e671169, type: 3}
+  m_PrefabInstance: {fileID: 4534309595399866630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &934104911
 GameObject:
   m_ObjectHideFlags: 0
@@ -20231,9 +20236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 934456d717caa9446bda485ef59b415a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doorOpenSprite: {fileID: 0}
-  doorCloseSprite: {fileID: 0}
-  _blindBoy: {fileID: 0}
+  doorOpenSprite: {fileID: 932274851}
+  doorCloseSprite: {fileID: 2005429623}
+  _blindBoy: {fileID: 369621783}
 --- !u!58 &1949548470
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -27370,6 +27375,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973549311}
   m_CullTransparentMesh: 1
+--- !u!1 &2005429623 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6900838316035455168, guid: 4167f2316b3759d478640f474e671169, type: 3}
+  m_PrefabInstance: {fileID: 4534309595399866630}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2009704797
 GameObject:
   m_ObjectHideFlags: 0
@@ -27663,7 +27673,7 @@ Transform:
   m_GameObject: {fileID: 2105289353}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 39.67, y: -3.91, z: 0.17405342}
+  m_LocalPosition: {x: 38.71, y: -4.06, z: 0.17405342}
   m_LocalScale: {x: 3.5360029, y: 3.5360029, z: 3.5360029}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -27876,7 +27886,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4120884289628180591, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.94
+      value: 45.88
       objectReference: {fileID: 0}
     - target: {fileID: 4120884289628180591, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27937,6 +27947,10 @@ PrefabInstance:
     - target: {fileID: 7575561742402763693, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
       propertyPath: m_TagString
       value: BlindBoy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8424586454984015965, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
+      propertyPath: m_GravityScale
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
