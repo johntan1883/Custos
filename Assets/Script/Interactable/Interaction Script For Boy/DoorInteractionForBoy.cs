@@ -9,6 +9,7 @@ public class DoorInteractionForBoy : MonoBehaviour, IBoyInteractable
     [SerializeField] private GameObject doorOpenSprite;
     [SerializeField] private GameObject doorCloseSprite;
     [SerializeField] private GameObject _blindBoy;
+    [SerializeField] private AudioClip  openDoorSFX;
 
     private GameObject key;
 
@@ -37,7 +38,9 @@ public class DoorInteractionForBoy : MonoBehaviour, IBoyInteractable
         {
             doorCloseSprite.SetActive(false);
             doorOpenSprite.SetActive(true);
-            
+
+            SoundFXManager.Instance.PlaySoundFXClip(openDoorSFX, transform, 0.2f, "SFX");
+
             GameObject Key = GameObject.FindGameObjectWithTag("Key");
             Destroy(Key);
         }
