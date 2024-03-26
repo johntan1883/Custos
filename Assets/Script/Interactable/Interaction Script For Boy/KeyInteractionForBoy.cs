@@ -10,11 +10,6 @@ public class KeyInteractionForBoy : MonoBehaviour,IBoyInteractable
 
     private bool boyPickedUpKey;
 
-    private void Awake()
-    {
-        
-    }
-
     public void BoyInteract()
     {
         if (boyPickedUpKey)
