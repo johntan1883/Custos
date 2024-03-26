@@ -764,6 +764,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4120884289628180591, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
   m_PrefabInstance: {fileID: 2536645341174128941}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &369621788
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369621783}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 62620b03d4e0b104b9a76cb463f56f71, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &429198026
 GameObject:
   m_ObjectHideFlags: 0
@@ -27910,6 +27932,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6558641063752638098, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
   m_PrefabInstance: {fileID: 5539612671093571975}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &316757331542526506
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869943859}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 586304cc07290ca47ba2047862154538, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1445619515063435003
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28078,7 +28122,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4120884289628180591, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 429198027}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7575561742402763693, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 369621788}
   m_SourcePrefab: {fileID: 100100000, guid: fcdee92a59413764eb8406ffc67904b1, type: 3}
 --- !u!1001 &3592527746333227663
 PrefabInstance:
@@ -28348,6 +28395,10 @@ PrefabInstance:
       value: Dog Test
       objectReference: {fileID: 0}
     - target: {fileID: 4664065957474384066, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664065957474384066, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       propertyPath: gameOverCanvas
       value: 
       objectReference: {fileID: 1961870543}
@@ -28413,7 +28464,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3661739200784022347, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1904548755}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3035422683118373134, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 316757331542526506}
   m_SourcePrefab: {fileID: 100100000, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
 --- !u!4 &8130879789871689255 stripped
 Transform:
