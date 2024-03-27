@@ -6,6 +6,7 @@ public class MonsterDectectSound : MonoBehaviour
 {
     [SerializeField] private GameObject monsterPrefab;
     [SerializeField] private float soundDetectionRadius = 5f;
+    [SerializeField] private AudioClip breakGlassSound;
 
     private bool isDetectingSound = true;
 
@@ -14,6 +15,8 @@ public class MonsterDectectSound : MonoBehaviour
         if (isDetectingSound)
         {
             DetectSound();
+
+            
         }
     }
 
@@ -29,6 +32,7 @@ public class MonsterDectectSound : MonoBehaviour
             {
                 // Player sound detected, spawn a new monster and disable this one
                 SpawnMonster();
+                SoundFXManager.Instance.PlaySoundFXClip(breakGlassSound, transform, 0.3f, "SFX");
                 DisableMonster();
                 break; // Exit the loop after spawning one monster
             }

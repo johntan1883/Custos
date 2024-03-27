@@ -73,7 +73,7 @@ public class UI : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level 1 Demo");
+        SceneManager.LoadScene("Prototype");
     }
     public void BackControls()
     {
