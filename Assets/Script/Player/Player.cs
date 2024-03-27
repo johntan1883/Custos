@@ -23,6 +23,10 @@ public class Player : MonoBehaviour
     [Header("Ground Chcek")]
     [SerializeField] private float extraHeight = 0.25f;
     [SerializeField] private LayerMask whatIsGround;
+    ////////////////////////////////////////////////////
+    [SerializeField] private Transform rayCastOrigin;
+    [SerializeField] private Transform playerFeet;
+    public PhysicsMaterial2D frictionMaterial;
 
     [Header("Sound")]
     [SerializeField] private AudioClip barkSoundClip;
@@ -54,6 +58,10 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         StartDirectionCheck();
+        if (coll != null && frictionMaterial != null)
+        {
+            coll.sharedMaterial = frictionMaterial;
+        }
 
         // Find and store reference to BoyInteraction script
         boyInteraction = FindFirstObjectByType<BoyInteraction>();
@@ -77,6 +85,7 @@ public class Player : MonoBehaviour
         Jump();
         Bark();
         BarkToInteract();
+        StickToTheGround();
 
         // Move the boy towards the target object
         boy.MoveToTarget();
@@ -256,6 +265,17 @@ public class Player : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void StickToTheGround()
+    {
+        groundHit = Physics2D.Raycast(rayCastOrigin.position, -Vector2.up, 100f, whatIsGround);
+        if (groundHit != false)
+        {
+            Vector2 temp = playerFeet.position;
+            temp.y = groundHit.point.y;
+            playerFeet.position = temp;
         }
     }
 

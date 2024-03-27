@@ -1833,7 +1833,7 @@ Transform:
   m_GameObject: {fileID: 813948242}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.778614, y: -7.832267, z: -7.53}
+  m_LocalPosition: {x: 4.648615, y: -7.832267, z: -7.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6607,8 +6607,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -578297075
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3803887481044832418, guid: a2ec7aa3a3f2f6443b8d5c013dc7cce7, type: 3}
   m_Color: {r: 0.5283019, g: 0.5283019, b: 0.5283019, a: 1}
@@ -21833,7 +21833,7 @@ Transform:
   m_GameObject: {fileID: 1915530489}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.778614, y: -7.832267, z: -7.53}
+  m_LocalPosition: {x: 4.648615, y: -7.832267, z: -7.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29407,10 +29407,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1957411803}
     m_Modifications:
-    - target: {fileID: 4017200998620607043, guid: 6f89e609e519ff743a2932ea5eb9f1a9, type: 3}
-      propertyPath: breakGlassSound
-      value: 
-      objectReference: {fileID: 8300000, guid: f2b5d48bdd25de54383217cee7aa7a13, type: 3}
     - target: {fileID: 4843033095815289157, guid: 6f89e609e519ff743a2932ea5eb9f1a9, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -29732,7 +29728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6558641063752638098, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.52
+      value: -28.65
       objectReference: {fileID: 0}
     - target: {fileID: 6558641063752638098, guid: f5ff574b696abda40829334dd82ed87a, type: 3}
       propertyPath: m_LocalPosition.y
