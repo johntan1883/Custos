@@ -9,15 +9,44 @@ public class Boy : MonoBehaviour
     [SerializeField] private GameObject CheckForInteractObject;
     [SerializeField] private Animator anim;
     [SerializeField] private GameObject Sprite;
+    [SerializeField] private GameObject lLeg;
+    [SerializeField] private GameObject rLeg;
+
     public GameObject EndCan;
 
     [SerializeField] private float movingSpeed = 5f;
     private Transform targetTransform; // The target transform for the boy to follow
 
+
+    private float originX; 
+    private bool isFacingRight = true;
+    
+
     private void Start()
     {
         anim = GetComponent<Animator>();
+
+        originX = transform.position.x;
     }
+
+    private void Update()
+    {
+        // Check if the current X value is greater than the previous X value
+        if (targetTransform.position.x > transform.position.x)
+        {
+            Flip();
+        }
+        // Check if the current X value is less than the previous X value
+        else if (currentX < originX)
+        {
+            Flip();
+        }
+
+        // Update the previous X value for the next frame
+        originX = currentX;
+    }
+
+
     // Method to set the target transform for the boy to follow
     public void SetTargetTransform(Transform target)
     {
@@ -63,6 +92,7 @@ public class Boy : MonoBehaviour
     IEnumerator FlipSpriteTwice()
     {
         SpriteRenderer spriteRenderer = Sprite.GetComponent<SpriteRenderer>();
+
         if (spriteRenderer != null)
         {
             // Flip sprite horizontally
@@ -88,5 +118,11 @@ public class Boy : MonoBehaviour
         {
             EndCan.SetActive(true);
         }
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        transform.Rotate(0, 180, 0);
     }
 }
