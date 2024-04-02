@@ -17,23 +17,10 @@ public class Boy : MonoBehaviour
     [SerializeField] private float movingSpeed = 5f;
     private Transform targetTransform; // The target transform for the boy to follow
 
-
-    private float originX; 
-    private bool isFacingRight = true;
-    
-
     private void Start()
     {
         anim = GetComponent<Animator>();
-
-        originX = transform.position.x;
     }
-
-    private void Update()
-    {
-        
-    }
-
 
     // Method to set the target transform for the boy to follow
     public void SetTargetTransform(Transform target)
@@ -55,6 +42,16 @@ public class Boy : MonoBehaviour
             // Calculate direction towards the target transform
             Vector3 direction = (targetTransform.position - transform.position).normalized;
             direction.y = 0f; // Make sure the boy moves only horizontally
+
+            // Flip sprite based on movement direction
+            if (direction.x > 0) // Moving right
+            {
+                Sprite.transform.localScale = new Vector3(1, 1, 1); // Ensure sprite faces right
+            }
+            else if (direction.x < 0) // Moving left
+            {
+                Sprite.transform.localScale = new Vector3(-1, 1, 1); // Flip sprite to face left
+            }
 
             // Move the boy towards the target transform
             transform.position += direction * movingSpeed * Time.deltaTime;
@@ -106,11 +103,5 @@ public class Boy : MonoBehaviour
         {
             EndCan.SetActive(true);
         }
-    }
-
-    private void Flip()
-    {
-        isFacingRight = !isFacingRight;
-        transform.Rotate(0, 180, 0);
     }
 }
