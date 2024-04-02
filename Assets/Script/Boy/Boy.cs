@@ -31,19 +31,7 @@ public class Boy : MonoBehaviour
 
     private void Update()
     {
-        // Check if the current X value is greater than the previous X value
-        if (targetTransform.position.x > transform.position.x)
-        {
-            Flip();
-        }
-        // Check if the current X value is less than the previous X value
-        else if (currentX < originX)
-        {
-            Flip();
-        }
-
-        // Update the previous X value for the next frame
-        originX = currentX;
+        
     }
 
 
