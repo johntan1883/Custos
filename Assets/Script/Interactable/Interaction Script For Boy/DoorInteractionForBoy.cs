@@ -6,6 +6,7 @@ public class DoorInteractionForBoy : MonoBehaviour, IBoyInteractable
 {
     //Requirement : Boy holding the key
 
+    [SerializeField] private GameObject doorGOBJ;
     [SerializeField] private GameObject doorOpenSprite;
     [SerializeField] private GameObject doorCloseSprite;
     [SerializeField] private GameObject _blindBoy;
@@ -38,6 +39,8 @@ public class DoorInteractionForBoy : MonoBehaviour, IBoyInteractable
         {
             doorCloseSprite.SetActive(false);
             doorOpenSprite.SetActive(true);
+
+            doorGOBJ.GetComponent<Collider2D>().enabled = false;
 
             SoundFXManager.Instance.PlaySoundFXClip(openDoorSFX, transform, 0.2f, "SFX");
 

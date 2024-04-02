@@ -58,11 +58,13 @@ public class Boy : MonoBehaviour
             anim.SetBool("isWalkingB", true);
 
             // Check if the boy has reached close to the target transform, then stop moving
-            float distance = Vector3.Distance(transform.position, targetTransform.position);
+            float distance = Mathf.Abs(transform.position.x - targetTransform.position.x);
             if (distance < 0.1f)
             {
                 // Stop moving
+                Debug.Log("Test for work");
                 targetTransform = null;
+                anim.SetBool("isWalkingB", false);
             }
         }
     }

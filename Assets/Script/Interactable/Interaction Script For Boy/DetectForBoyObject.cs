@@ -16,7 +16,7 @@ public class DetectForBoyObject : MonoBehaviour
             if (doorInteraction != null)
             {
                 doorInteraction.BoyInteract();
-                Door.GetComponent<Collider2D>().enabled = false;
+                //Door.GetComponent<Collider2D>().enabled = false;
             }
             else
             {
