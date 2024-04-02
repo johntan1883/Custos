@@ -6,6 +6,7 @@ public class CheckingForInteractableObject : MonoBehaviour
 {
     public LayerMask layerToIgnore; // Specify the layer to ignore
 
+    [SerializeField] private GameObject checkForInteractObject;
     [SerializeField] private float rotationSpeed = 20f;
     [SerializeField] private float raycastDistance = 10f;
 
@@ -32,6 +33,11 @@ public class CheckingForInteractableObject : MonoBehaviour
         {
             HandleHitObject(hit.collider.gameObject);
         }
+
+        else
+        {
+            StartCoroutine(DisableCheckingForInteractableObject());
+        }
     }
 
     private void HandleHitObject(GameObject hitObject)
@@ -44,5 +50,11 @@ public class CheckingForInteractableObject : MonoBehaviour
         }
 
         gameObject.SetActive(false);
+    }
+
+    private IEnumerator DisableCheckingForInteractableObject()
+    {
+        yield return new WaitForSeconds(1f);
+        checkForInteractObject.SetActive(false);
     }
 }
