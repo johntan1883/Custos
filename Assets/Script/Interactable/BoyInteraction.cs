@@ -70,6 +70,8 @@ public class BoyInteraction : InteractableBase
         // Set the indicator inactive
         _interactableIndicatorIcon.SetActive(false);
 
+        boy.anim.SetBool("isWalkingB", false);
+
         Debug.Log("Boy put down by dog");
     }
 }

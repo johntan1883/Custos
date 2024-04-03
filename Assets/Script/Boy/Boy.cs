@@ -7,7 +7,7 @@ public class Boy : MonoBehaviour
     public bool IsHoldingKey = false;
 
     [SerializeField] private GameObject CheckForInteractObject;
-    [SerializeField] private Animator anim;
+    [SerializeField] public Animator anim;
     [SerializeField] private GameObject Sprite;
     [SerializeField] private GameObject lLeg;
     [SerializeField] private GameObject rLeg;
@@ -59,11 +59,11 @@ public class Boy : MonoBehaviour
 
             // Check if the boy has reached close to the target transform, then stop moving
             float distance = Mathf.Abs(transform.position.x - targetTransform.position.x);
-            if (distance < 0.1f)
+            if (distance < 0.1f || targetTransform == null)
             {
                 // Stop moving
                 Debug.Log("Test for work");
-                targetTransform = null;
+                //targetTransform = null;
                 anim.SetBool("isWalkingB", false);
             }
         }
