@@ -1887,6 +1887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenuCanvas: {fileID: 1416958574}
   ControlsCanvas: {fileID: 0}
+  CreditsCanvas: {fileID: 0}
   Player: {fileID: 1869943859}
 --- !u!1 &818342920
 GameObject:
@@ -19019,7 +19020,7 @@ Transform:
   m_GameObject: {fileID: 1777435079}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34, y: -0.17, z: 0}
+  m_LocalPosition: {x: 0.34, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
