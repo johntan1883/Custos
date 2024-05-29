@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 {
     [Header("Movement")]
     [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float sprintSpeed = 7f;
+    private float currentSpeed;
+    private bool isSprinting = false;
 
     [Header("Jump")]
     [SerializeField] private float jumpForce = 5f;
@@ -86,6 +89,7 @@ public class Player : MonoBehaviour
         Bark();
         BarkToInteract();
         StickToTheGround();
+        Sprint();
 
         // Move the boy towards the target object
         boy.MoveToTarget();
@@ -108,7 +112,8 @@ public class Player : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
 
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        currentSpeed = isSprinting ? sprintSpeed : moveSpeed;
+        rb.velocity = new Vector2(moveInput * currentSpeed, rb.velocity.y);
     }
 
     private void Jump()
@@ -166,6 +171,18 @@ public class Player : MonoBehaviour
         }
 
         DrawGroundCheck();
+    }
+
+    private void Sprint()
+    {
+        if (UserInput.instance.controls.Movement.Sprint.WasPressedThisFrame())
+        {
+            isSprinting = true;
+        }
+        else if (UserInput.instance.controls.Movement.Sprint.WasReleasedThisFrame())
+        {
+            isSprinting = false;
+        }
     }
 
     private void Bark()
