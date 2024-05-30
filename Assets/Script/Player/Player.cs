@@ -177,7 +177,10 @@ public class Player : MonoBehaviour
     {
         if (UserInput.instance.controls.Movement.Sprint.WasPressedThisFrame())
         {
-            isSprinting = true;
+            if (IsGrounded())
+            {
+                isSprinting = true;
+            }
         }
         else if (UserInput.instance.controls.Movement.Sprint.WasReleasedThisFrame())
         {
