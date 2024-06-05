@@ -90,7 +90,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4843033095815289157}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 56.99, y: -1.82, z: 0.83}
   m_LocalScale: {x: 4.7793474, y: 4.7793474, z: 4.7793474}
   m_ConstrainProportionsScale: 0
@@ -138,8 +138,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1329775555
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8877554250043548852, guid: cb495ff3036cd1e47b356ab3d9db1db1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.12941177}
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterPrefab: {fileID: 1606056034310719420, guid: 9ffdb8ce9709fbb4a8e85dd1605b3105, type: 3}
   soundDetectionRadius: 5.62
+  breakGlassSound: {fileID: 8300000, guid: f2b5d48bdd25de54383217cee7aa7a13, type: 3}
 --- !u!114 &5998643273201541431
 MonoBehaviour:
   m_ObjectHideFlags: 0

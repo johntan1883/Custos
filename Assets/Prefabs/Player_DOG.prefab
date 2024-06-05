@@ -146,6 +146,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2146124539055010036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1528436989420078367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7762453792348347394}
+  m_Layer: 0
+  m_Name: Legs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7762453792348347394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528436989420078367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3661739200784022347}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2195255624191193343
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +251,7 @@ GameObject:
   - component: {fileID: 858174011142932413}
   - component: {fileID: 2132415240092643826}
   - component: {fileID: 4664065957474384066}
-  - component: {fileID: 6342039165954072096}
+  - component: {fileID: 1733469263223408104}
   m_Layer: 3
   m_Name: Player_DOG
   m_TagString: Player
@@ -244,6 +275,7 @@ Transform:
   - {fileID: 1124104874284314056}
   - {fileID: 3661739200784022347}
   - {fileID: 2146124539055010036}
+  - {fileID: 6160817495602870015}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &858174011142932413
@@ -332,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
+  sprintSpeed: 7
   jumpForce: 12
   jumpTime: 0.35
   objectToFollowPrefab: {fileID: 2787068571683518834, guid: 46817fd40199a83429fc4784a1267f78, type: 3}
@@ -341,12 +374,15 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1088
+  rayCastOrigin: {fileID: 4196138958435158556}
+  playerFeet: {fileID: 6160817495602870015}
+  frictionMaterial: {fileID: 6200000, guid: a87a51cd78116594cbf399e91a07fd78, type: 2}
   barkSoundClip: {fileID: 8300000, guid: 8d10ced49b092b643a664fa78f7bc13f, type: 3}
   barkToFollowSoundClip: {fileID: 8300000, guid: 14708c26ac9840e4387ef5053c3cff13, type: 3}
   IsFacingRight: 0
   gameOverCanvas: {fileID: 0}
   anim: {fileID: 0}
---- !u!95 &6342039165954072096
+--- !u!95 &1733469263223408104
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
@@ -496,6 +532,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 640799240786189775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7716812730242894666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6160817495602870015}
+  m_Layer: 3
+  m_Name: Legs Ground
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6160817495602870015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716812730242894666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6558641063752638098}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8658420389645933197
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,5 +595,6 @@ Transform:
   - {fileID: 4196138958435158556}
   - {fileID: 8794200137036908377}
   - {fileID: 640799240786189775}
+  - {fileID: 7762453792348347394}
   m_Father: {fileID: 6558641063752638098}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
